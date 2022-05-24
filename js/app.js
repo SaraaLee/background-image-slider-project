@@ -16,11 +16,12 @@ todas las imágenes; y úsala en tu código. */
 
 
 const pictures = [
-  "contBcg-0",
+  "renault",
   "contBcg-1",
   "contBcg-2",
   "contBcg-3",
-  "contBcg-4"
+  "contBcg-4",
+  "contBcg-5"
 ];
 
 //variable fuera funcion, variable de estado,  nos indicara la posi 
@@ -41,12 +42,12 @@ let currentPic = 0
 let btnLeft = document.querySelector(".btn-left");
 btnLeft.addEventListener("click", function (event) {
   //console.log("he hecho click"); FUNCIONA
-
+currentPic--;
 if(currentPic == -1){
-  currentPic = 4;
+  currentPic = pictures.length - 1; // con esto podemos añadir mas fotos fjsifjskf
 }
 //crear nueva string con URL de las siguientes pics y meterlo en el dom de .img-container
-let urlPrev = `url(../img/contBcg-${currentPic}.jpeg)`;
+let urlPrev = `url(../img/${pictures[currentPic]}.jpeg)`;
 
 
 document.querySelector(".img-container").style.backgroundImage = urlPrev;
@@ -57,11 +58,11 @@ let btnRight = document.querySelector(".btn-right");
 btnRight.addEventListener("click", function (event) {
   //console.log("he hecho click en el derecho"); FUNCIONA
   currentPic++;
-  if(currentPic == 5){
+  if(currentPic == pictures.length){
     currentPic = 0;
   }
   //crear nueva string con URL de las siguientes pics y meterlo en el dom de .img-container
-  let urlNext = `url(../img/contBcg-${currentPic}.jpeg)`;
+  let urlNext = `url(../img/${pictures[currentPic]}.jpeg)`;
   document.querySelector(".img-container").style.backgroundImage = urlNext;
 });
 
